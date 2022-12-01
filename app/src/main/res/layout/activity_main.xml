@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigation"
+        app:itemBackground="@color/black"
+        app:itemTextColor="@drawable/selector"
+        app:itemIconTint="@drawable/selector"
+        app:menu="@menu/menu_navigationnew"
+        android:layout_alignParentBottom="true"
+        app:tabMode="scrollable">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    //we need a toolbar because we will remove action bar from our application
+    <androidx.appcompat.widget.Toolbar
+        android:layout_height="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_marginTop="0dp"
+        android:background="@color/white"
+        android:id="@+id/toolbar">
+
+//inside this toolbar we need to show a text like news app (news feed)
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="News Feed"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="#03A9F4">
+
+            </TextView>
+
+        </RelativeLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    //below this relative layout we need a tab layout to show items
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/include"
+        android:layout_below="@+id/toolbar"
+        app:tabTextColor="#618C8F"
+        app:tabSelectedTextColor="#03A9F4"
+        app:tabIndicatorColor="#03A9F4"
+        app:tabIndicatorHeight="3.5dp"
+        app:tabMode="scrollable"
+        android:layout_marginTop="0dp"
+        android:backgroundTint="@color/white">
+//tabmode scrollable is important it will help to scroll the tabs
+
+        //now we are adding the items (making sure we present inside this tab layout)
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:id="@+id/home">
+
+        </com.google.android.material.tabs.TabItem>
+
+
+    <com.google.android.material.tabs.TabItem
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sports"
+        android:id="@+id/sports">
+
+    </com.google.android.material.tabs.TabItem>
+
+    <com.google.android.material.tabs.TabItem
+        android:id="@+id/health"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="health">
+
+    </com.google.android.material.tabs.TabItem>
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/Stock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stocks">
+
+        </com.google.android.material.tabs.TabItem>
+
+
+
+    <com.google.android.material.tabs.TabItem
+        android:id="@+id/technology"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="technology">
+
+    </com.google.android.material.tabs.TabItem>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Business"
+            android:id="@+id/business">
+        </com.google.android.material.tabs.TabItem>
+
+    </com.google.android.material.tabs.TabLayout>
+
+
+//below we need fragments here (for home we have diffterent fragment , for health we have different fragment..etc)
+    //so first we have to a fregment container here to place the fregments with java code
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/include"
+        android:layout_marginTop="0dp">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Butt" />
+
+
+    </androidx.viewpager.widget.ViewPager>
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
